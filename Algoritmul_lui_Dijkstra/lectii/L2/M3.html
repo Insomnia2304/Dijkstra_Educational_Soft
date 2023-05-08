@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../fisiere_globale/css_global.css"> 
+    <title>Implementare</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+ 
+<body>
+ 
+    <div class="dreptunghi_mare" id="ID">
+    <div class="dreptunghi_teorie">
+    <div class="functie_dijkstra">void dijkstra(int start) <br>
+         {<br>
+          int i, j, min, k;<br>    
+          int viz[NMAX], d[NMAX], tata[NMAX];<br>
+          for (i=1; i<=n; i++) {<br>
+              <div style="text-indent: 5%;">M[i] = 0;<br></div>
+              <div style="text-indent: 5%;">dmin[i]=inf;<br></div>
+              <div style="text-indent: 5%;">}<br></div>
+          for (i=1; i<=G[start][0]; i++){<br>
+            <div style="text-indent: 5%;">dmin[G[start][i]] = C[start][i];<br></div>
+            <div style="text-indent: 5%;">tata[G[start][i]] = start;<br></div>
+            <div style="text-indent: 5%;"> }<br></div>
+          M[start] = 1; dmin[start] = 0;<br>
+          for (i=1; i < n; i++){<br>
+            <div style="text-indent: 5%;">minim = inf;<br></div>
+            <div style="text-indent: 5%;">for (j=1; j <= n; j++)<br></div>
+            <div style="text-indent: 10%;">if (!M[j] && dmin[j] < minim){<br></div>
+            <div style="text-indent: 10%;">varf = j;<br></div>
+            <div style="text-indent: 10%;">minim = dmin[j];<br></div>
+            <div style="text-indent: 10%;">}<br></div>
+            <div style="text-indent: 5%;">if (minim == inf)<br></div>
+            <div style="text-indent: 8%;">    break; <br>   </div>
+            <div style="text-indent: 5%;">M[varf] = 1;<br> </div>
+            <div style="text-indent: 5%;">for (j=1; j <= G[varf][0]; j++){<br></div>
+            <div style="text-indent: 10%;">if (dmin[G[varf][j]] > C[varf][j] + minim){<br></div>
+            <div style="text-indent: 14%;">dmin[G[varf][j]] = minim + C[carf][j];<br></div>
+            <div style="text-indent: 14%;">tata[G[varf][j]] = varf;<br>   </div>
+            <div style="text-indent: 14%;">}<br></div>
+            <div style="text-indent: 5%;">}<br>  </div>
+            
+        }
+    </div>
+    </div>
+    <div style="position: absolute; height: 60%; width: 41%; transform: translate(0 , -50%); top: 53%; left: 4.5%; padding: 0.5%; font-family: 'Verdana'; font-size: 1.9vmin; background-color:rgb(210, 219, 226); border: 1px solid black;">
+        <p style="font-size: 2vmin;">Analiza complexității:</p>
+        <ul>
+        <li>La fiecare pas din algoritmul lui Dijkstra se selectează nodul la care se ajunge cu cel mai mic cost de la nodul de start. Astfel, vom avea n momente în care trebuie să determinăm care este nodul la care se ajunge cu cost minim;</li> 
+        <li style="margin-top: 4%;">Modul în care căutăm acest nod influențează complexitatea algoritmului. În exemplul din dreapta, la fiecare dintre cele n momente sunt parcurse toate cele n noduri pentru a fi selectat cel dorit, această abordare având o complexitate de O(n^2);</li>
+        <li style="margin-top: 4%;">Algoritmul poate fi optimizat folosind o structură de date numită heap sau priority queue. La fiecare pas cunoaștem nodul pentru care drumul este minim, iar actualizarea distanțelor minime în heap va avea complexitate logaritmică. Astfel, complexitatea algoritmului va fi O(n*log(n)).</li>
+        </ul>
+    </div>  
+    <!-- <canvas id="harta_canvas"> </canvas> !-->
+    <!--<canvas id="dreptunghi_variabile" style="position: absolute; border:1px solid #000000; width: 41.7%; height: 10%; transform: translate(0 , -50%); top: 19%; left: 4.5%;"></canvas>!-->
+
+    <div class="dreptunghi_sus">
+        <div class="calculator">
+        <a href="../../index.html">
+        <img src="../../imagini/info_smol.png" style="
+         position: absolute;
+         height:100%;
+        ">
+        </a>
+        </div>
+    <div class="dreptunghi_titlu">
+    <div class="titlu_global">Algoritmul lui Dijkstra </div>
+    <div class="subtitlu"> implementare </div>
+    </div>
+    </div>
+ 
+    <!--<div class="harta">
+        <div class="flex-butoane">
+            <img onclick="ruleaza()" src="../../imagini/play_btn.png" class="buton_control" title="Ruleaza">
+            <img onclick="pauza()" src="../../imagini/pause_btn.png" class="buton_control" title="Pauza">
+            <img onclick="stop()" src="../../imagini/stop_btn.png" class="buton_control" title="Opreste">
+            <img onclick="inapoi()" src="../../imagini/prev_btn.png" class="buton_control" title="Inapoi">   
+            <img onclick="inainte()" src="../../imagini/next_btn.png" class="buton_control" title="Inainte">
+        </div>
+        <img onclick="sterge_harta()" src="../../imagini/cos_gunoi.png" class="sterge_harta" title="Sterge harta">
+    </div>!-->
+
+    
+ 
+    <!--<div id="fereastra_control" class="fereastra" style="height: 80%; width: 40%; visibility: hidden; left: 71%"> 
+    <div class="flex-container">
+    <div class="nume_harta" onclick="dijkstra_normal()"> Dijkstra normal </div>
+    <div class="nume_harta" onclick="roy_floyd_normal()"> Roy Floyd normal </div>
+    <div class="nume_harta" onclick="atomic()"> Atomic </div>
+    <div class="nume_harta" onclick="adn()"> ADN </div>
+    <div class="nume_harta" onclick="roza()"> Roza </div>
+    <div class="nume_harta" onclick="litera_antica()"> Litera antica </div>    
+    <div class="nume_harta" onclick="windows()"> Windows </div>
+    <div class="nume_harta" onclick="rute()"> Rute </div>
+    </div>
+    <img onclick="dreptunghi_info('fereastra_control')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 86%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_legenda" class="fereastra" style="height: 60%; width: 40%; visibility: hidden;"> 
+    <img src="../../imagini/dreptunghi_legenda.png" style="position: absolute; height:72%;">    
+    <img onclick="dreptunghi_info('fereastra_legenda')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 89%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_info" class="fereastra" style="height: 60%; width: 70%; visibility: hidden;"> 
+        <p><b>Schimbă harta</b> - selectează graful dorit din lista de hărți</p>
+        <p><b>Graf Asociat</b> - schimbă mediul de invățare din harta cu aeropoarte în graful asociat acesteia</p>
+        <p><b>Legendă</b> - semnificațiile simbolurilor din pagină</p>
+        <p><b>Cum încep</b> - folosește butoanele pentru controlul animației după ce ai selectat harta dorită</p>
+        <img onclick="dreptunghi_info('fereastra_info')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    !-->
+    <div id="fereastra_obiective" class="fereastra" style="height: 60%; width: 60%; visibility: hidden;"> 
+        <p>După parcurgerea lecţiei, elevul va fi capabil:</p>
+        <ul style="padding:3%;">
+            <li>să descrie algoritmul lui Dijkstra de determinare a drumurilor de cost minim de la un vârf specificat al unui graf la fiecare din celelalte vârfuri ale grafului; </li> <br>
+            <li>să implementeze algoritmul lui Dijkstra;</li> <br>
+            <li>să analizeze complexitatea algoritmului lui Dijkstra.</li> <br>
+        </ul>    
+    <img onclick="dreptunghi_info('fereastra_obiective')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    <div class="dreptunghi_jos"> 
+        <div style="display: flex; position: absolute; flex-direction: row; flex-wrap: wrap; justify-content:center; height: 100%; width: 100%; align-items: center;">
+            <div id="tip_harta" style="visibility: hidden;"></div>
+    <button onclick="dreptunghi_info('fereastra_obiective')" class="butoane">Obiective</button>
+    </div>
+    </div>
+    </div>
+    <!--<canvas id="sageata"  width="30" height="460" style="position: absolute; border:1px solid #000000; transform: translate(0 , -50%); top: 53%; left: 52.9%;"></canvas>
+    --<script>
+        const variabile=document.getElementById('dreptunghi_variabile');
+        const ctx2=variabile.getContext('2d');
+        const sageata=document.getElementById('sageata');
+        const ctx3=sageata.getContext('2d');
+        
+        function canvas_arrow2(fromx, fromy, tox, toy) {
+        var headlen = 5; // length of head in pixels
+        ctx3.beginPath();
+        ctx3.strokeStyle= "#000000"; 
+        var dx = tox - fromx;
+        var dy = toy - fromy;
+        var angle = Math.atan2(dy, dx);
+        ctx3.lineWidth = 1.2;
+        ctx3.moveTo(fromx, fromy);
+        ctx3.lineTo(tox, toy);
+        ctx3.lineTo(tox - headlen * Math.cos(Math.PI / 6 - angle), toy - headlen * Math.sin(angle - Math.PI / 6));
+        ctx3.moveTo(tox, toy);
+        ctx3.lineTo(tox - headlen * Math.cos(angle + Math.PI / 6), toy - headlen * Math.sin(angle + Math.PI / 6));
+        ctx3.stroke();
+      }
+
+      ctx2.fillStyle='#d2dbe2'; ctx2.fillRect(0, 0, variabile.width, variabile.height);
+      canvas_arrow2(2, 5, 30, 5);
+    </script> !-->
+
+
+    </div>
+    <script src="../../fisiere_globale/js_global.js"></script>
+</body>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../fisiere_globale/css_global.css"> 
+    <title>Evaluare</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+ 
+<body>
+ 
+    <div class="dreptunghi_mare" id="ID">
+    <div class="dreptunghi_sus">
+        <div class="calculator">
+        <a href="../../index.html">
+        <img src="../../imagini/info_smol.png" style="
+         position: absolute;
+         height:100%;
+        ">
+        </a>
+        </div>
+    <div class="dreptunghi_titlu">
+    <div class="titlu_global">Algoritmul lui Dijkstra </div>
+    <div class="subtitlu"> Evaluare </div>
+    </div>
+    </div>
+    <div class="dreptunghi_evaluare">
+        <div class="flex_dreptunghi_evaluare">
+            <button type="button" onclick="apare('fereastra1')" style="text-align: center; font-weight: bold;">1</button>
+            <button type="button" onclick="apare('fereastra2')" style="text-align: center; font-weight: bold;">2</button>
+            <button type="button" onclick="apare('fereastra3')" style="text-align: center; font-weight: bold;">3</button>
+            <button type="button" onclick="apare('fereastra4')" style="text-align: center; font-weight: bold;">4</button>
+        </div>
+        <div class="fereastra_evaluare" id='fereastra2'>
+            <p class="text_evaluare">2. Care dintre următoarele funcţii afişează drumul de cost minim de la vârful de start la vârful x?</p> 
+            <form>  
+                <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: start; margin-left: 2%;">
+                    <input type="radio" id="r1" value="c1" name="drum_min">
+                    <img src="./../../imagini/raspuns1.JPG" style="width: 40%;">
+                    <input type="radio" id="r2" value="c2" name="drum_min">
+                    <img src="./../../imagini/raspuns2.JPG" style="margin-left: 5%; width: 40%;">
+                </div>
+                <br>
+                <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: start; margin-left: 2%;">
+                    <input type="radio" id="r3" value="c3" name="drum_min">
+                    <img src="./../../imagini/raspuns3.JPG" style="width: 40%;">
+                    <input type="radio" id="r4" value="c4" name="drum_min">
+                    <img src="./../../imagini/raspuns4.JPG" style="margin-left: 5%; width: 40%;">
+                </div>
+                <button type="button" style="margin-left: 2%;" onclick="verif2()"> Submit </button>
+            </form>   
+            <p id="rez2" style="margin-left: 2%;"></p>
+        </div>
+        <div class="fereastra_evaluare" id='fereastra3'>
+            <p class="text_evaluare">3. Se consideră harta de mai jos care reprezintă un graf orientat pe care sunt figurate aeroporturi şi costuri. Să se indice două drumuri distincte de cost minim de la vârful de start la vârful 3.</p> 
+            <div style="display: flex; flex-direction: row; margin-left: 2%;">
+                <img src="./../../imagini/harta_evaluare.JPG" style="width: 40%;">
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <form>
+                        <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                            <input id="n1"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="n2"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="n3"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="n4"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="n5"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        </div>
+                        <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                            <div style="width:5.5%; height:5%; text-align: center;">1</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">2</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">3</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">4</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">5</div>
+                        </div>
+                        <br>
+                    </form>
+                    <form>
+                        <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                            <input id="p1"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="p2"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="p3"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="p4"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                            <input id="p5"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        </div>
+                        <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                            <div style="width:5.5%; height:5%; text-align: center;">1</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">2</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">3</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">4</div>
+                            <div style="width:5.5%; height:5%; text-align: center;">5</div>
+                        </div>
+                        <br>
+                    </form>
+                    <button type="button" style="transform: translate(-50%, -50%); margin-left: 50%; width: 20%;" onclick="verif3()"> Submit </button>
+                </div>
+            </div>  
+            <p id="rez3" style="margin-left: 2%;"></p>          
+        </div>
+        <div class="fereastra_evaluare" id='fereastra4'>
+            <p class="text_evaluare">4. Se consideră harta de mai jos pe care sunt figurate aeroporturi şi costuri. Pe hartă este surprins un moment din timpul desfăşurării algoritmului lui Dijkstra, prin săgeţi roşii fiind indicate drumurile calculate, iar prin săgeţi verzi drumuri care sunt luate în calcul pentru următorul pas. Completaţi vectorul d după selectarea vârfului 2.</p>    
+            <div style="display: flex; flex-direction: row; margin-left: 2%; justify-content: center;">
+                <img src="./../../imagini/harta_evaluare2.JPG" style="width: 40%;">   
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                <form>
+                    <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                        <input id="o1"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        <input id="o2"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        <input id="o3"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        <input id="o4"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                        <input id="o5"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    </div>
+                    <div style="display:flex; flex-wrap: wrap; justify-content: center; flex-direction: row; margin-left: 2%;">
+                        <div style="width:5.5%; height:5%; text-align: center;">1</div>
+                        <div style="width:5.5%; height:5%; text-align: center;">2</div>
+                        <div style="width:5.5%; height:5%; text-align: center;">3</div>
+                        <div style="width:5.5%; height:5%; text-align: center;">4</div>
+                        <div style="width:5.5%; height:5%; text-align: center;">5</div>
+                    </div>
+                    <br>
+                    <button type="button" style="transform: translate(-50%, -50%); margin-left: 50%; width: 20%;" onclick="verif4()"> Submit </button>
+                </form>
+                <p id="rez4" style="margin-left: 2%;"></p>
+                </div>
+            </div> 
+        </div>
+        <div class="fereastra_evaluare" id='fereastra1'>
+            <p class="text_evaluare">1. Se consideră vectorul tata de mai jos, care reţine pentru fiecare vârf informaţii despre vârful care îl precedă pe drumul de cost minim de la vârful de plecare la acesta. Reconstituie drumul de la vârful de plecare la vârful 3, indicând, în ordine vârfurile parcurse.</p>
+            <br>
+            <form>
+                <div style="display:flex; flex-wrap: wrap; flex-direction: row; margin-left: 2%;">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="6">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="1">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="4">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="2">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="7">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="5">
+                    <input type="text" readonly style="width:3%; height:5%; text-align: center;" value="0">
+                </div>
+                <div style="display:flex; flex-wrap: wrap; flex-direction: row; margin-left: 2%;">
+                    <div style="width:4.5%; height:5%; text-align: center;">1</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">2</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">3</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">4</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">5</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">6</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">7</div>
+                </div>
+            </form>    
+            <br>
+            <form>
+                <div style="display:flex; flex-wrap: wrap; flex-direction: row; margin-left: 2%;">
+                    <input id="t1"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t2"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t3"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t4"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t5"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t6"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                    <input id="t7"  maxlength="1" style="width:3%; height:5%; text-align: center;" >
+                </div>
+                <div style="display:flex; flex-wrap: wrap; flex-direction: row; margin-left: 2%;">
+                    <div style="width:4.5%; height:5%; text-align: center;">1</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">2</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">3</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">4</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">5</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">6</div>
+                    <div style="width:4.5%; height:5%; text-align: center;">7</div>
+                </div>
+                <br>
+                <button type="button" style="margin-left: 2%;" onclick="verif1()"> Submit </button>
+            </form>    
+            <br>
+            <p id="rez1" style="margin-left: 2%;"></p>
+        </div>  
+    </div>
+    <div class="dreptunghi_jos"> 
+    </div>
+    <script src="../../fisiere_globale/js_evaluare.js"></script>
+</body>

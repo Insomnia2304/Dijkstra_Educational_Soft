@@ -1,0 +1,282 @@
+.dreptunghi_mare
+{
+ position: absolute;
+ top:50%;
+ left:50%;
+ height: 100%;
+ width: 64.7%;
+ transform: translate(-50%, -50%);
+ background: rgb(151, 193, 231);
+}
+ 
+.dreptunghi_sus
+{
+ position: absolute;
+ width:100%;
+ height:13%;
+ background: rgb(30, 124, 218);
+}
+ 
+.dreptunghi_jos
+{
+ position: absolute;
+ width:100%;
+ height:7%;
+ background: rgb(30, 124, 218);
+ top: 93%;
+}
+ 
+.calculator
+{
+ position: absolute;
+ background: rgb(30, 124, 218);
+ height: 100%;
+ width: 15%;
+}
+ 
+.dreptunghi_titlu
+{
+ position: absolute;
+ background: rgb(30, 124, 218);
+ height: 100%;
+ width: 75%;
+ left: 13%;
+}
+ 
+.titlu_global
+{
+ position: absolute; 
+ font-family: "Verdana";
+ color: white;
+ font-size: 4vmin;
+ font-weight: bold;
+ top: 10%;
+}
+ 
+.subtitlu
+{
+ position: absolute; 
+ font-family: "Verdana";
+ color: white;
+ font-size: 2vmin;
+ top:50%;
+}
+ 
+.butoane
+{
+ 
+ font-size: 1.3vmin;
+ white-space: nowrap;
+ background-color:rgb(183, 197, 209);
+ font-family: "Verdana";
+ font-weight: bolder;
+ cursor: pointer;
+ height:50%;
+ width:18%;
+ border-radius: 15px;
+ border:none;
+}
+ 
+.butoane:hover {background-color: rgb(231, 245, 255);}
+ 
+.fereastra
+{
+ position: absolute;
+ transform: translate(-50%, -50%);
+ top: 50%;
+ left: 50%;
+ background-color: rgb(213, 219, 224);
+ border: 1px solid black;
+ padding:1%;
+ font-family: "Verdana";
+ font-size: 2vmin;
+}
+ 
+.harta
+{
+    position: absolute;
+    height: 55%;
+    width: 41.7%;
+    transform: translate(0 , -50%);
+    top: 53%;
+    left: 4.5%;
+    border: 1px solid black;
+}
+ 
+.dreptunghi_teorie
+{
+ position: absolute;
+ height: 60%;
+ width: 41%;
+ transform: translate(0 , -50%);
+ top: 53%;
+ left: 54.5%;
+ padding: 0.5%;
+ font-family: "Verdana";
+ font-size: 2vmin;
+ background-color:rgb(210, 219, 226);
+ border: 1px solid black;
+}
+ 
+#harta_canvas
+{
+ position: absolute;
+ height: 55%;
+ width: 41.7%;
+ transform: translate(0 , -50%);
+ top: 53%;
+ left: 4.5%;
+ border: 1px solid black;
+}
+ 
+.nume_harta
+{
+ font-family: 'Verdana';   
+ font-size: 3vmin;
+ margin-left: 2%;
+}
+ 
+.nume_harta:hover
+{
+ text-decoration: underline; 
+ cursor: pointer;  
+}
+ 
+.flex-container
+{
+    display: flex;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+ 
+.flex-butoane
+{
+    position: absolute;
+    top: 100.7%;
+    left: -0.5%;
+    width: 33.9%;
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    border: 1px solid black;
+}
+ 
+.sterge_harta
+{
+    position: absolute;
+    top: 100.7%;
+    left: 91.8%;
+    height: 8%;
+}
+ 
+.sterge_harta:hover
+{
+    cursor: pointer;
+}
+ 
+.buton_control
+{
+    height: 100%;
+}
+ 
+.buton_control:hover
+{
+    cursor: pointer;
+}
+ 
+.flex-butoane-dreptunghi_jos
+{
+ display: flex;   
+ position: absolute;
+ flex-direction: row;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ height: 100%;
+ width: 100%;
+ align-items: center;
+}
+ 
+canvas#harta_canvas {
+    /*width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;*/
+    visibility:visible;
+    /*object-fit: contain;*/
+ 
+  }
+
+.functie_dijkstra
+{
+    font-family: 'Courier';   
+    font-weight: bolder;
+    font-size: 1.7vmin;
+    /*margin-left: 10%;*/
+}
+
+.dreptunghi_evaluare
+{
+    position: absolute;
+    height: 60%;
+    width: 80%;
+    transform: translate(0 , -50%);
+    top: 53%;
+    left: 10%;
+    padding: 0.5%;
+    font-family: "Verdana";
+    font-size: 2vmin;
+    background-color:rgb(210, 219, 226);
+    border: 1px solid black;   
+}
+
+.flex_dreptunghi_evaluare
+{
+ display: flex;   
+ position: absolute;
+ flex-direction: column;
+ flex-wrap: wrap;
+ justify-content: space-evenly;
+ height: 100%;
+ width: 6%;
+ align-items: center;
+}
+
+.fereastra_evaluare
+{
+    position: absolute;
+    height: 80%;
+    width: 70%;
+    transform: translate(0 , -50%);
+    top: 50%;
+    left: 15%;
+    padding: 0.5%;
+    font-family: "Verdana";
+    font-size: 2vmin;
+    background-color:rgb(255, 255, 255);
+    border: 1px solid black;      
+}
+
+.text_evaluare
+{
+ margin-left: 2%;
+ margin-right: 2%;
+ text-align: justify;   
+}
+
+.dreptunghi_variabile
+{
+    position: absolute;
+    height: 10%;
+    width: 41.7%;
+    transform: translate(0 , -50%);
+    top: 19%;
+    left: 4.5%;
+    background-color:rgb(210, 219, 226);
+    border: 1px solid black;   
+}

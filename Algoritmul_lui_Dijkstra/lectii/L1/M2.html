@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../fisiere_globale/css_global.css"> 
+    <title>Reprezentarea informațiilor</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+ 
+<body>
+ 
+    <div class="dreptunghi_mare" id="ID">
+    <div class="dreptunghi_teorie">
+        Putem asocia problemei un graf orientat  astfel: <br>
+
+        - vârfurile grafului sunt aeroporturile; acestea vor fi numerotate de la 1 la N(unde N reprezintă numărul de aeroporturi); <br>
+        
+        - există arc de la vârful x la vârful y, dacă de la aeroportul corespunzător vârfului x există un zbor (arc) având ca destinaţie aeroportul corespunzător vârfului y.
+    
+        <p>Graful orientat asociat  problemei este ponderat, deoarece putem asocia o funcţie de cost, definită pe mulţimea arcelor cu valori în mulţimea numerelor reale strict pozitive, costul unui arc fiind egal cu costul zborului modelat de arcul respectiv.
+        Aeroportul de start este un vârf special al grafului, denumit vârf de start.</p>
+        <p>În limbaj de grafuri, problema poate fi formulată astfel:
+            Fie G=(X, V) un graf orientat, c: V→R+ o funcţie de cost, prin care se asociază fiecărui arc o valoare reală strict pozitivă şi x0 un vârf din graf.
+            Să se determine câte un drum de cost minim de la x0 la fiecare dintre celelalte vârfuri ale grafului.
+            
+            Costul unui drum este egal cu suma costurilor arcelor din care este constituit drumul.</p>
+    </div>  
+    <canvas id="harta_canvas"> </canvas>
+    <div class="dreptunghi_sus">
+        <div class="calculator">
+        <a href="../../index.html">
+        <img src="../../imagini/info_smol.png" style="
+         position: absolute;
+         height:100%;
+        ">
+        </a>
+        </div>
+    <div class="dreptunghi_titlu">
+    <div class="titlu_global">Algoritmul lui Dijkstra </div>
+    <div class="subtitlu"> Reprezentarea informațiilor </div>
+    </div>
+    </div>
+ 
+    <div class="harta">
+        <div class="flex-butoane">
+            <img onclick="ruleaza()" src="../../imagini/play_btn.png" class="buton_control" title="Ruleaza">
+            <img onclick="pauza()" src="../../imagini/pause_btn.png" class="buton_control" title="Pauza">
+            <img onclick="stop()" src="../../imagini/stop_btn.png" class="buton_control" title="Opreste">
+            <img onclick="inapoi()" src="../../imagini/prev_btn.png" class="buton_control" title="Inapoi">   
+            <img onclick="inainte()" src="../../imagini/next_btn.png" class="buton_control" title="Inainte">
+        </div>
+        <img onclick="sterge_harta()" src="../../imagini/cos_gunoi.png" class="sterge_harta" title="Sterge harta">
+    </div>
+ 
+    <div id="fereastra_control" class="fereastra" style="height: 80%; width: 40%; visibility: hidden; left: 71%"> 
+    <div class="flex-container">
+    <div class="nume_harta" onclick="dijkstra_normal()"> Dijkstra normal </div>
+    <div class="nume_harta" onclick="roy_floyd_normal()"> Roy Floyd normal </div>
+    <div class="nume_harta" onclick="atomic()"> Atomic </div>
+    <div class="nume_harta" onclick="adn()"> ADN </div>
+    <div class="nume_harta" onclick="roza()"> Roza </div>
+    <div class="nume_harta" onclick="litera_antica()"> Litera antica </div>    
+    <div class="nume_harta" onclick="windows()"> Windows </div>
+    <div class="nume_harta" onclick="rute()"> Rute </div>
+    </div>
+    <img onclick="dreptunghi_info('fereastra_control')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 86%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_legenda" class="fereastra" style="height: 60%; width: 40%; visibility: hidden;"> 
+    <img src="../../imagini/dreptunghi_legenda.png" style="position: absolute; height:72%;">    
+    <img onclick="dreptunghi_info('fereastra_legenda')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 89%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_obiective" class="fereastra" style="height: 60%; width: 60%; visibility: hidden;"> 
+        <p>După parcurgerea lecţiei, elevul va fi capabil:</p>
+        <ul style="padding:3%;">
+            <li>să modeleze cu ajutorul teoriei grafurilor situaţia  practică prezentată;</li> <br>
+            <li>să aleagă o reprezentare adecvată a grafului în memoria calculatorului;</li> <br>
+            <li>să descrie structurile de date necesare pentru implementarea algoritmului.</li> <br>
+        </ul>    
+    <img onclick="dreptunghi_info('fereastra_obiective')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_info" class="fereastra" style="height: 60%; width: 70%; visibility: hidden;"> 
+        <p><b>Schimbă harta</b> - selectează graful dorit din lista de hărți</p>
+        <p><b>Graf Asociat</b> - schimbă mediul de invățare din harta cu aeropoarte în graful asociat acesteia</p>
+        <p><b>Legendă</b> - semnificațiile simbolurilor din pagină</p>
+        <p><b>Cum încep</b> - folosește butoanele pentru controlul animației după ce ai selectat harta dorită</p>
+        <p><b>Definiții:</b>
+            <ul>
+                <li>Un  graf neorientat  este o pereche ordonată  G = (X, V), unde X este o mulţime finită şi nevidă de elemente numite  vârfuri(noduri), iar V este o mulţime de perechi de elemente ale lui X, numite  muchii.  O muchie având vârfurile i şi j (numite extremităţile sale) este notată [i,j].</li> <br>
+                <li>Un  graf  orientat  este o pereche ordonată  G = (X, V), deosebirea faţă de grafurile neorientate constând în faptul că elementele lui V sunt perechi ordonate de vârfuri numite  arce.  Orice arc (i,j) are stabilit un sens de parcurgere şi anume de la extremitatea sa iniţială i, la extremitatea sa finală j.
+                </li> <br>
+                <li>Se numeşte  drum  o succesiune de arce de forma (i1,i2), (i2,i3), ..., (in-1,in), notată prescurtat sub forma (i1,i2,...,in). Lungimea drumului este egală cu numărul arcelor pe  care le conţine. Dacă toate vârfurile drumului sunt distincte, atunci drumul se numeşte  elementar.</li> <br>
+            </ul>
+        <img onclick="dreptunghi_info('fereastra_info')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_reprinf" class="fereastra" style="padding: 0.5%; height: 60%; width: 47%; visibility: hidden;">
+        <p>Reprezentarea informaţiilor:</p>
+        <p>1. Vom reprezenta graful prin liste de adiacență, astfel: </p>
+        <img  src="../../imagini/liste.png" style=" position: absolute; height: 8%; "> <br>
+        <p>2. Mulţimea vârfurilor selectate (pentru care a fost deja calculat drumul de cost minim) va fi reprezentată prin vectorul caracteristic M cu N componente:</p>
+        <img  src="../../imagini/M.png" style=" position: absolute; height: 8%; "> <br>
+        <p>3.  Vom reţine pentru fiecare vârf i, costul drumului de cost minim de la start la i,  drum care trece numai prin vârfuri selectate:</p>
+        <img  src="../../imagini/dmin.png" style=" position: absolute; height: 4%; "> <br>
+        <p>4. Pentru a reconstitui drumurile de cost minim de la vârful de start  la fiecare dintre celelalte vârfuri, vom folosi un vector tata, cu N componente:</p>
+        <img  src="../../imagini/tata.png" style=" position: absolute; height: 7%; "> <br>
+    <img onclick="dreptunghi_info('fereastra_reprinf')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 91%; top: 3%; cursor: pointer;">
+    </div>
+    <div class="dreptunghi_jos"> 
+        <div class="flex-butoane-dreptunghi_jos">
+            <div id="tip_harta" style="visibility: hidden;"></div>
+    <button onclick="dreptunghi_info('fereastra_reprinf')" class="butoane"> Reprezentarea informațiilor </button>       
+    <button onclick="modificare_grafAsociat()" class="butoane"> Graf asociat </button>
+    <button onclick="dreptunghi_info('fereastra_control')" class="butoane">Schimbă harta</button>
+    <button onclick="dreptunghi_info('fereastra_legenda')" class="butoane">Legendă</button>
+    <button onclick="dreptunghi_info('fereastra_obiective')" class="butoane">Obiective</button>
+    <img onclick="dreptunghi_info('fereastra_info')" src="../../imagini/buton_info.png" style="height: 100%; cursor: pointer;">
+    </div>
+    </div>
+    </div>
+    <script src="../../fisiere_globale/js_global.js"></script>
+</body>

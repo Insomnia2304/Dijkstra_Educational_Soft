@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../fisiere_globale/css_global.css"> 
+    <title>Prezentarea problemei</title>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+</head>
+ 
+<body>
+ 
+    <div class="dreptunghi_mare" id="ID">
+    <div class="dreptunghi_teorie">
+        <p>Domnul Ionescu are una dintre cele mai mari companii de transport aerian pentru mărfuri din lume. În multe oraşe ale lumii are şi aeroporturi proprii. Zilnic din oraşul în care se află sediul central pleacă avioane cu marfă în toată lumea. </p>
+
+        <p>Pentru a reduce din cheltuieli, el angajează un expert (pe tine) care să găsească cele mai economice rute din oraşul în care se află sediul central către fiecare dintre celelalte oraşe.</p>
+        
+        <p>Ţi se pune la dispoziţie o hartă pe care sunt marcate aeroporturile din oraşe. De asemenea pe hartă sunt marcate prin săgeţi cursele aeriene existente între oraşe. Sensul săgeţii indică sensul de zbor, iar numărul specificat pe săgeată reprezintă costul zborului. </p>
+    
+        <p>Scrie un algoritm care să determine pentru fiecare oraş x care este costul minim pentru a transporta mărfuri de la sediul central la oraşul x, precum şi o rută de transport pentru care se obţine costul minim.</p>
+    </div>  
+    <canvas id="harta_canvas"> </canvas>
+    <div class="dreptunghi_sus">
+        <div class="calculator">
+        <a href="../../index.html">
+        <img src="../../imagini/info_smol.png" style="
+         position: absolute;
+         height:100%;
+        ">
+        </a>
+        </div>
+    <div class="dreptunghi_titlu">
+    <div class="titlu_global">Algoritmul lui Dijkstra </div>
+    <div class="subtitlu"> Prezentarea problemei </div>
+    </div>
+    </div>
+ 
+    <div class="harta">
+        <div class="flex-butoane">
+            <img onclick="ruleaza()" src="../../imagini/play_btn.png" class="buton_control" title="Ruleaza">
+            <img onclick="pauza()" src="../../imagini/pause_btn.png" class="buton_control" title="Pauza">
+            <img onclick="stop()" src="../../imagini/stop_btn.png" class="buton_control" title="Opreste">
+            <img onclick="inapoi()" src="../../imagini/prev_btn.png" class="buton_control" title="Inapoi">   
+            <img onclick="inainte()" src="../../imagini/next_btn.png" class="buton_control" title="Inainte">
+        </div>
+        <img onclick="sterge_harta()" src="../../imagini/cos_gunoi.png" class="sterge_harta" title="Sterge harta">
+    </div>
+ 
+    <div id="fereastra_control" class="fereastra" style="height: 80%; width: 40%; visibility: hidden; left: 71%"> 
+    <div class="flex-container">
+    <div class="nume_harta" onclick="dijkstra_normal()"> Dijkstra normal </div>
+    <div class="nume_harta" onclick="roy_floyd_normal()"> Roy Floyd normal </div>
+    <div class="nume_harta" onclick="atomic()"> Atomic </div>
+    <div class="nume_harta" onclick="adn()"> ADN </div>
+    <div class="nume_harta" onclick="roza()"> Roza </div>
+    <div class="nume_harta" onclick="litera_antica()"> Litera antica </div>    
+    <div class="nume_harta" onclick="windows()"> Windows </div>
+    <div class="nume_harta" onclick="rute()"> Rute </div>
+    </div>
+    <img onclick="dreptunghi_info('fereastra_control')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 86%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_legenda" class="fereastra" style="height: 60%; width: 40%; visibility: hidden;"> 
+    <img src="../../imagini/dreptunghi_legenda.png" style="position: absolute; height:72%;">    
+    <img onclick="dreptunghi_info('fereastra_legenda')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 89%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_obiective" class="fereastra" style="height: 60%; width: 60%; visibility: hidden;"> 
+        <p>După parcurgerea lecţiei, elevul va fi capabil:</p>
+        <ul style="padding:3%;">
+            <li>să construiască o configuraţie corectă pentru problema enunţată; </li> <br>
+            <li>să urmărească pas cu pas modul în care sunt determinate drumurile de cost minim în configuraţia construită;</li> <br>
+            <li>să identifice semnificaţia săgeţilor verzi şi a celor roşii şi rolul acestora pe parcursul determinării drumurilor de cost minim;</li> <br>
+            <li>să descrie situaţii practice în care este necesară determinarea drumurilor de cost minim de la un vârf fixat la alte vârfuri.</li> <br>
+        </ul>    
+    <img onclick="dreptunghi_info('fereastra_obiective')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    <div id="fereastra_info" class="fereastra" style="height: 60%; width: 70%; visibility: hidden;"> 
+        <p><b>Schimbă harta</b> - selectează graful dorit din lista de hărți</p>
+        <p><b>Graf Asociat</b> - schimbă mediul de invățare din harta cu aeropoarte în graful asociat acesteia</p>
+        <p><b>Legendă</b> - semnificațiile simbolurilor din pagină</p>
+        <p><b>Cum încep</b> - folosește butoanele pentru controlul animației după ce ai selectat harta dorită</p>
+        <img onclick="dreptunghi_info('fereastra_info')" src="../../imagini/x.png" style=" position: absolute; height: 5%; left: 93%; top: 2%; cursor: pointer;">
+    </div>
+    <div class="dreptunghi_jos"> 
+        <div class="flex-butoane-dreptunghi_jos">
+            <div id="tip_harta" style="visibility: hidden;"></div>
+            <button onclick="modificare_grafAsociat()" class="butoane"> Graf asociat </button>
+    <button onclick="dreptunghi_info('fereastra_control')" class="butoane">Schimbă harta</button>
+    <button onclick="dreptunghi_info('fereastra_legenda')" class="butoane">Legendă</button>
+    <button onclick="dreptunghi_info('fereastra_obiective')" class="butoane">Obiective</button>
+    <img onclick="dreptunghi_info('fereastra_info')" src="../../imagini/buton_info.png" style="height: 100%; cursor: pointer;">
+    </div>
+    </div>
+    </div>
+    <script src="../../fisiere_globale/js_global.js"></script>
+</body>
